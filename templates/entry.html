@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/search4'>
+<table>
+<p>{{ the_invitation }}</p>
+<tr><td>Фраза:</td><td><input name='phrase' type='TEXT' width='60'></td></tr>
+<tr><td>Буквы:</td><td><input name='letters' type='TEXT' value='aeiou'></td></tr>
+</table>
+<p>{{ the_clickbutton }}</p>
+<p><input value='Жми!' type='SUBMIT'></p>
+</form>
+
+{% endblock %}
