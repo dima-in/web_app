@@ -1,13 +1,16 @@
-from flask import Flask, render_template, request, escape
+import mysql.connector
+from DBcm import UseDatabase
 
+from flask import Flask, render_template, request, escape
 app = Flask(__name__)
 
-
 def log_request(req: 'flask_request', res: str) -> None:
-    with open('vsearch.log', 'a') as log:
-        print(req.form, req.remote_addr, req.user_agent, res, file=log, sep='|')
-    print(sep='\n')
+    dbconfig = {'host': '127.0.0.1', 'user': 'vsearch', 'password': 'vsearchpasswd', 'database': 'vsearchlogDB', }
 
+    with UseDatabase(dbconfig) as cursor:
+
+        _SQL = """insert into log (phrase, letters, ip, browser_string, results) values (%s, %s, %s, %s, %s)"""
+        cursor.execute(_SQL, (req.form['phrase'], req.form['letters'], req.remote_addr, req.user_agent.browser, res))
 
 @app.route('/search4', methods=['POST'])
 def do_search() -> 'html':
@@ -34,9 +37,18 @@ def enrty_page() -> 'html':
 
 
 @app.route('/viewlog')
-def view_the_log() -> 'str':
+def view_the_log() -> 'html':
+
     with open('vsearch.log') as log:
-        return escape(log.read())
+        list_str = []
+        for line in log:
+            list_str.append([])
+            for sep_str in line.split('|'):
+                list_str[-1].append(escape(sep_str))
+    titles = ('Данные формы', 'IP адрес', 'Браузер', 'Результаты')
+    return render_template('viewlog.html', the_title='показать log',
+                           the_row_titles=titles,
+                           the_data=list_str,)
 
 
 def search4letters(phrase: str, letter: str) -> set:
