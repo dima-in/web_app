@@ -1,0 +1,4 @@
+ImmutableMultiDict([('phrase', 'tjjej'), ('letters', 'ilyfluti')])|127.0.0.1|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15|{'t'}
+ImmutableMultiDict([('phrase', 'tjjej'), ('letters', 'ilyfluti')])|127.0.0.1|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15|{'t'}
+ImmutableMultiDict([('phrase', 'avrav'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.143 YaBrowser/22.5.0.1916 Yowser/2.5 Safari/537.36|{'a'}
+ImmutableMultiDict([('phrase', 'avrav'), ('letters', 'aeiou')])|127.0.0.1|Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.143 YaBrowser/22.5.0.1916 Yowser/2.5 Safari/537.36|{'a'}
